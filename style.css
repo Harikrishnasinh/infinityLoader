@@ -1,0 +1,58 @@
+body {
+  position: relative;
+  background: #000;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  cursor: grab;
+}
+.container {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+.wrapper {
+  background: none;
+  width: 100%;
+  height: 400px;
+  perspective: 1000px;
+  transform: perspective(200px) rotatex(45deg) scale(2);
+  position: relative;
+}
+
+.wrapper .fade {
+  position: absolute;
+  top: -50px;
+  left: -40px;
+  right: -40px;
+  height: 400px;
+  background: #000;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+  opacity: 1;
+  z-index: 2;
+}
+.wrapper .line-grid {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 400px;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #86dcfe 2px, transparent 2px), linear-gradient(to bottom, #86dcfe 2px, transparent 2px);
+  animation: treadmill 1s linear infinite;
+}
+@keyframes treadmill {
+  0% {
+    transform: translateY(0);
+ }
+  100% {
+    transform: translateY(-40px);
+ }
+}
